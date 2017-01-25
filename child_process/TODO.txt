@@ -1,0 +1,2 @@
+share a socket with more children
+launch a child and close the parent, the child should not die
