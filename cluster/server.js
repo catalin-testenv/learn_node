@@ -19,6 +19,13 @@ if (cluster.isMaster) {
     cluster.on('exit', (worker, code, signal) => {
         console.log(`worker ${worker.process.pid} died`);
     });
+
+    setTimeout(() => {
+        cluster.disconnect(() => {
+            console.log('bye');
+        });
+    }, 10000);
+
 } else {
     // Workers can share any TCP connection
     // In this case it is an HTTP server
